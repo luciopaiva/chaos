@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chaos game</title>
+
+    <style>
+        :root {
+            --interval: 250ms;
+            --background-color: #000000;
+            --live-tracker-color: #005e21;
+            --tracker-color: #ff9d15;
+            --tracker-size: 8px;
+            --number-of-trackers: 20;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            overflow: hidden;
+            font-family: sans-serif;
+            color: var(--tracker-color);
+        }
+        a, a:hover, a:active, a:visited {
+            color: var(--tracker-color);
+            text-decoration: none;
+            border-bottom: 1px solid var(--tracker-color);
+        }
+        .container {
+            position: absolute;
+            width: 800px;
+            height: 600px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #canvas, #tracker-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .tracker {
+            position: absolute;
+            width: var(--tracker-size);
+            height: var(--tracker-size);
+            border-radius: calc(var(--tracker-size) / 2);
+            background-color: var(--live-tracker-color);
+
+            transition: var(--interval) ease-in-out;
+        }
+
+        .title {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            font-size: 3em;
+        }
+        .footer {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="title">The Chaos Game</div>
+
+<div class="container">
+    <canvas id="canvas"></canvas>
+    <div id="tracker-layer"></div>
+</div>
+
+<div class="footer">by <a href="https://luciopaiva.com">Lucio Paiva</a> 2018</div>
+
+<script src="index.js"></script>
+
+</body>
+</html>
